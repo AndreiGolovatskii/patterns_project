@@ -5,6 +5,7 @@ import attr
 from libs.terrain.terrain import Terrain
 from libs.player.player import Player
 
+
 @attr.s
 class Game:
     terrain = attr.ib()
@@ -13,9 +14,6 @@ class Game:
 
     def __attrs_post_init__(self):
         pass
-     
+
     def interation(self):
-       pass 
-
-
-
+        pass

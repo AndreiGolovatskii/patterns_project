@@ -1,20 +1,23 @@
 import attr
-import pytest 
+import pytest
 
 from libs.market.market import Market
+
 
 class DummyProduct1:
     pass
 
+
 class DummyProduct2:
     pass
+
 
 def test_market():
     market = Market({DummyProduct1: 100})
 
     assert market.can_buy(DummyProduct1)
     assert market.get_price(DummyProduct1) == 100
-    
+
     instance1 = market.buy(DummyProduct1)
     assert isinstance(instance1, DummyProduct1)
 

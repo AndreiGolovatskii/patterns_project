@@ -21,5 +21,4 @@ class BaseUnit:
 @attr.s
 class DummyUnit(BaseUnit):
     name = "Dummy Unit"
-    size = 3   
-    
+    size = 3
