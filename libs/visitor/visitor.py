@@ -13,14 +13,14 @@ class Visitor:
             "class_id": unit.class_id,
             "size": unit.size,
             "name": unit.name,
-            "texture": "assets/home.png",
+            "texture": "assets/{}.png".format(unit.name),
         }
 
     def market_product_serialize(self, product, price):
         return {
             "class_id": product.class_id,
             "name": product.name,
-            "texture": "assets/home.png",
+            "texture": "assets/{}.png".format(product.name),
             "price": price,
             "size": product.size,
         }
@@ -38,7 +38,9 @@ class Visitor:
         )
 
     def visit_terrain(self, terrain):
-        self.j["terrain"] = {"width": terrain.width, "height": terrain.height}
+        self.j["terrain"] = {"width": terrain.width,
+                             "height": terrain.height,
+                             "texture": "assets/default_terrain.png"}
 
     def visit_game(self, game):
         for player in game.players.values():

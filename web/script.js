@@ -129,6 +129,16 @@ class DrawingController {
     rm_unit(id) {
         $(`#id`).remove();
     }
+
+    update_terrain(texture) {
+        $("#terrain").empty();
+
+        var img = document.createElement("img")
+        img.src = texture
+        img.width = this.canvas.width;
+        img.height = this.canvas.height;
+        $("#terrain").append(img)
+    }
 }
 
 class Game {
@@ -155,6 +165,7 @@ class Game {
         console.log(game_data);
         
         this.draw_controller.update_canvas(game_data.terrain.width, game_data.terrain.height);
+        this.draw_controller.update_terrain(game_data.terrain.texture);
         
         this.draw_controller.update_wallet(game_data.players[this.player_id].wallet);
 

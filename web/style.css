@@ -58,3 +58,7 @@ body {
   display: block;
   color: yellowgreen
 }
+
+#terrain {
+    position: absolute;
+}
