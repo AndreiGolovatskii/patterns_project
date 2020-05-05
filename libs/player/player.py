@@ -19,6 +19,12 @@ class Player:
     def remove_unit(self, unit_id):
         del self.units_by_id[unit_id]
 
-    def __attrs_post_init__(self):
-        self.player_id = 0
-        self.player_name = "user"
+    def can_buy(self, price):
+        return self.wallet >= price
+
+    def visit(self, visitor):
+        visitor.visit_player(self)
+
+    def iteration(self, elapsed_time):
+        for unit in self.units_by_id.values():
+            self.wallet += unit.work() * elapsed_time

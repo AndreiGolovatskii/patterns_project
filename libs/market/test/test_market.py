@@ -2,13 +2,16 @@ import attr
 import pytest
 
 from libs.market.market import Market
+from libs.base_unit.base_unit import BaseUnit
 
 
-class DummyProduct1:
+@attr.s
+class DummyProduct1(BaseUnit):
     pass
 
 
-class DummyProduct2:
+@attr.s
+class DummyProduct2(BaseUnit):
     pass
 
 

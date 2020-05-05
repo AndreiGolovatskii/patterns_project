@@ -27,6 +27,8 @@ class TerrainSpot:
 
 @attr.s
 class Terrain:
+    width = attr.ib(default=10)
+    height = attr.ib(default=10)
     cells = attr.ib(factory=dict)
     free_positions = attr.ib(factory=set)
 
@@ -46,3 +48,14 @@ class Terrain:
     def remove_spot(self, spot: TerrainSpot) -> None:
         for position in spot_positions(spot.position, spot.size):
             self.free_positions.add(position)
+
+    @classmethod
+    def empty_terrain(cls, size):
+        terrain = cls(size, size)
+        terrain.free_positions = set(spot_positions(Position(0, 0), size))
+        for position in terrain.free_positions:
+            terrain.cells[position] = Cell(resources=None)
+        return terrain
+
+    def visit(self, visitor):
+        visitor.visit_terrain(self)

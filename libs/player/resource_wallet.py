@@ -41,3 +41,11 @@ class ResourceWallet:
             and self.oil == other.oil
             and self.electricity == other.electricity
         )
+
+    def __iter__(self):
+        yield ("money", self.money)
+        yield ("oil", self.oil)
+        yield ("electricity", self.electricity)
+
+    def __mul__(self, other):
+        return ResourceWallet(self.money * other, self.oil * other, self.electricity * other)
