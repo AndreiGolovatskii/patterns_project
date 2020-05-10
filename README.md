@@ -1,6 +1,5 @@
 # patterns_project
 start tests[from project root]: python3 -m pytest <br>
-need attrs: pip3 --user install attrs
 
 ```
 python3 server.py
